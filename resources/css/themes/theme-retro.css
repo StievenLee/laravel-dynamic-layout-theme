@@ -1,0 +1,91 @@
+/* ==============================================
+   Theme: Retro (Mode 1)
+   Auto-generated dari Figma Variables JSON
+   Jangan edit manual — jalankan ulang script!
+   ============================================== */
+
+.theme-retro {
+
+    /* ================================================
+       GENERAL COLORS
+       Dipakai sebagai: bg-general-primary, text-general-secondary-text, dst
+       ================================================ */
+    --color-general-primary-val:        #d9d9d9;
+    --color-general-secondary-val:      #ffffff;
+    --color-general-accent-val:         #e7e7e7;
+    --color-general-white-val:          #ffffff;
+    --color-general-gray-1-val:         #dedede;
+    --color-general-gray-2-val:         #b4b4b4;
+    --color-general-black-val:          #000000;
+    --color-general-primary-text-val:   #000000;
+    --color-general-secondary-text-val: #000000;
+    --color-general-accent-text-val:    #000000;
+
+    /* ================================================
+       FONT SIZES
+       Dipakai sebagai: text-[var(--font-size-1)], dst
+       ================================================ */
+    --font-size-1: 40px;
+    --font-size-2: 35px;
+    --font-size-3: 20px;
+    --font-size-4: 18px;
+    --font-size-5: 15px;
+    --font-size-6: 13px;
+
+    /* ================================================
+       BUTTON
+       ================================================ */
+    --color-button-border-val:    #ffffff;
+    --button-border-radius:       20px;
+    --button-padding-top:         10px;
+    --button-padding-bottom:      10px;
+    --button-padding-left:        25px;
+    --button-padding-right:       25px;
+    --button-drop-shadow:         1px 0px 0px 0px #828282;
+
+    /* ================================================
+       INPUT
+       ================================================ */
+    --color-input-border-val:     #e6e6e6;
+    --input-border-radius:        15px;
+    --input-padding-top:          10px;
+    --input-padding-bottom:       10px;
+    --input-padding-left:         25px;
+    --input-padding-right:        25px;
+    --input-inner-shadow:         inset 1px 1px 0px 0px #999999;
+
+    /* ================================================
+       CARD
+       ================================================ */
+    --color-card-border-val:      #e6e6e6;
+    --card-border-radius:         20px;
+    --card-padding-top:           10px;
+    --card-padding-bottom:        10px;
+    --card-padding-left:          10px;
+    --card-padding-right:         10px;
+    --card-inner-shadow:          inset 0px 0px 0px 0px #999999;
+
+    /* ================================================
+       POPUP
+       ================================================ */
+    --color-popup-border-val:     #ffffff;
+    --popup-border-radius:        0px;
+    --popup-padding-top:          10px;
+    --popup-padding-bottom:       10px;
+    --popup-padding-left:         25px;
+    --popup-padding-right:        25px;
+    --popup-drop-shadow:          1px 1px 0px 0px #000000;
+
+    /* TABLE */
+    --color-table-border-val:     #515151;
+
+    /* SCROLLBAR — Retro: abu-abu, kotak, bevel 3D inset */
+    --scrollbar-track-color:   var(--color-general-primary-val);
+    --scrollbar-track-border:  var(--color-general-gray-2-val);
+    --scrollbar-thumb-color:   var(--color-general-gray-2-val);
+    --scrollbar-thumb-hover:   var(--color-general-black-val);
+    --scrollbar-thumb-radius:  2px;
+    --scrollbar-thumb-shadow:  inset 1px 1px 0 0 var(--color-general-white-val),
+                               inset -1px -1px 0 0 #828282;
+    --scrollbar-corner-color:  var(--color-general-primary-val);
+}

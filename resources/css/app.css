@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+
+@theme inline{
+    /* ── FONTS ── */
+    --font-sans:     'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-wix:      'Wix Madefor Text', sans-serif;
+    --font-orbitron: 'Orbitron', sans-serif;
+
+    /* ── FONT SIZES → jadi class text-size-1 sampai text-size-6 ── */
+    --text-size-1: var(--font-size-1);
+    --text-size-2: var(--font-size-2);
+    --text-size-3: var(--font-size-3);
+    --text-size-4: var(--font-size-4);
+    --text-size-5: var(--font-size-5);
+    --text-size-6: var(--font-size-6);
+
+    /* ── GENERAL COLORS ── */
+    --color-general-primary:        var(--color-general-primary-val);
+    --color-general-secondary:      var(--color-general-secondary-val);
+    --color-general-accent:         var(--color-general-accent-val);
+    --color-general-white:          var(--color-general-white-val);
+    --color-general-gray-1:         var(--color-general-gray-1-val);
+    --color-general-gray-2:         var(--color-general-gray-2-val);
+    --color-general-black:          var(--color-general-black-val);
+    --color-general-primary-text:   var(--color-general-primary-text-val);
+    --color-general-secondary-text: var(--color-general-secondary-text-val);
+    --color-general-accent-text:    var(--color-general-accent-text-val);
+
+    /* ── BORDER COLORS ── */
+    --color-button-border-color: var(--color-button-border-val);
+    --color-input-border-color:  var(--color-input-border-val);
+    --color-card-border-color:   var(--color-card-border-val);
+    --color-popup-border-color:  var(--color-popup-border-val);
+    --color-table-border-color:  var(--color-table-border-val);
+}
+
+/* Import theme files — nilai di :root akan di-override oleh class theme */
+@import "./themes/theme-retro.css";
+@import "./themes/theme-modern.css";
+@import "./scrollbar.css";
+/* @import "./themes/theme-minimal.css"; */

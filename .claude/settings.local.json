@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(tree \"c:\\\\Cawu_5_Stieven\\\\Belajar_WebProg\\\\study\" -L 3 -I 'vendor|node_modules')"
+    ]
+  }
+}
