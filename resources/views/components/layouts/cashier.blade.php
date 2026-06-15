@@ -30,28 +30,79 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 </head>
 
-<body class="{{ $theme }} bg-general-primary font-wix">
+<body class="{{ $theme }} bg-general-primary font-wix h-screen flex flex-col overflow-hidden"
+      x-data="{ sidebarOpen: false, cartOpen: false }"
+      x-init="window.addEventListener('resize', () => {
+          if (window.innerWidth >= 1024) { sidebarOpen = false; cartOpen = false; }
+      })">
 
-    <div class="w-screen h-screen flex overflow-hidden">
+    {{-- ── MOBILE TOP BAR (disembunyikan di lg+) ── --}}
+    <header class="lg:hidden h-14 shrink-0 bg-general-secondary flex items-center justify-between px-4">
+        <button @click="sidebarOpen = !sidebarOpen" class="p-1 text-general-secondary-text">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+        <span class="text-general-secondary-text text-size-5 font-wix font-bold">{{ $storeName }}</span>
+        <button @click="cartOpen = !cartOpen" class="p-1 text-general-secondary-text">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 5h12M9 18a1 1 0 100 2 1 1 0 000-2zm9 0a1 1 0 100 2 1 1 0 000-2z"/>
+            </svg>
+        </button>
+    </header>
+
+    {{-- ── ROW UTAMA ── --}}
+    <div class="flex-1 min-h-0 flex overflow-hidden relative">
+
+        {{-- Backdrop sidebar (mobile) --}}
+        <div x-show="sidebarOpen"
+             x-transition:enter="transition-opacity ease-out duration-200"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="transition-opacity ease-in duration-200"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             @click="sidebarOpen = false"
+             class="fixed inset-0 z-40 bg-black/40"
+             style="display:none">
+        </div>
 
         {{-- ── SIDEBAR ── --}}
-        <x-cashier.sidebar
-            :store-name="$storeName"
-            :store-subtitle="$storeSubtitle"
-        >
-            {{ $sidebar }}
-        </x-cashier.sidebar>
+        <div class="fixed top-14 bottom-0 left-0 lg:static lg:top-auto lg:bottom-auto z-50 lg:z-auto shrink-0
+                    transition-transform duration-200 ease-in-out lg:translate-x-0"
+             :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'">
+            <x-cashier.sidebar :store-name="$storeName" :store-subtitle="$storeSubtitle">
+                {{ $sidebar }}
+            </x-cashier.sidebar>
+        </div>
 
         {{-- ── CONTENT ── --}}
-        <main class="flex-1 p-5 overflow-auto bg-general-primary">
+        <main class="flex-1 min-w-0 p-5 overflow-auto bg-general-primary">
             {{ $content }}
         </main>
 
+        {{-- Backdrop cart (mobile) --}}
+        <div x-show="cartOpen"
+             x-transition:enter="transition-opacity ease-out duration-200"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="transition-opacity ease-in duration-200"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             @click="cartOpen = false"
+             class="fixed inset-0 z-40 bg-black/40"
+             style="display:none">
+        </div>
+
         {{-- ── CART ── --}}
-        <section class="w-72 bg-general-secondary flex-shrink-0">
+        <section class="fixed top-14 bottom-0 right-0 lg:static lg:top-auto lg:bottom-auto z-50 lg:z-auto shrink-0
+                        w-72 bg-general-secondary
+                        transition-transform duration-200 ease-in-out lg:translate-x-0"
+                 :class="cartOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0'">
             {{ $cart }}
         </section>
 

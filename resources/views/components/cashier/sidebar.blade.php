@@ -15,9 +15,9 @@
     'storeSubtitle' => 'kasiro',
 ])
 
-<aside class="w-80 h-screen bg-general-secondary
+<aside class="w-80 h-full bg-general-secondary
               inline-flex flex-col justify-start items-start
-              overflow-hidden flex-shrink-0">
+              overflow-hidden shrink-0">
 
 
     
